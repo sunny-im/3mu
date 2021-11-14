@@ -18,7 +18,7 @@
 <%@ include file = "/header.jsp" %>
 
 	<div class="container" style="padding-top:30px;">
-	  <form name="newProduct" class="form-horizontal"  action="FreeBoardCheck.jsp" method="post" enctype="multipart/form-data">
+	  <form name="newProduct" class="form-horizontal"  action="FreeBoardDB.jsp" method="post" enctype="multipart/form-data">
 	    <div class="form-group  row">
 	       <label class="col-sm-2">Title</label>
 	       	 <div class="col-sm-4">
@@ -56,8 +56,8 @@
             </div>
        </div>
 	<div class="col-sm-offset-5 col-sm-5">
-		<button type="button" class="btn btn-dark" type="submit">Cancel</button>
-		<button type="button" class="btn btn-dark" type="submit">Submit</button>
+		<input type="submit" class="btn btn-dark" value="SUBMIT " > 
+	    <input type="reset" class="btn btn-dark" value="CANCEL" onclick="reset()" >
 	</div>
 	
 	  </form>

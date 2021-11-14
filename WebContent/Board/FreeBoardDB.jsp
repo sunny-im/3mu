@@ -19,7 +19,7 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 		
-		String ftilte = null, fcontent = null, fauthor=null, fimage = null, fdate=null;
+		String ftitle = null, fcontent = null, fauthor=null, fimage = null, fdate=null;
 		byte[] ffile = null;
 		
 	
@@ -35,7 +35,7 @@
 	 		
 			if(item.isFormField()) {	 
 				String value = item.getString("utf-8");
-				if (name.equals("title")) ftilte = value;
+				if (name.equals("title")) ftitle = value;
 				else if (name.equals("name")) fauthor = value;
 				else if (name.equals("content")) fcontent = value;
 			
@@ -58,7 +58,7 @@
 	 	BoardDAO dao = new BoardDAO();
 		fcontent = fcontent.replace("\r\n","<br>");   
 		
-		if(dao.insert(ftilte, fauthor, fcontent, fimage)) {
+		if(dao.insert(ftitle, fauthor, fcontent, fimage)) {
 			response.sendRedirect("/Board/FreeBoardList.jsp");
 		}else {
 			out.print("<script>alert('Failed to upload :( Try again '); location.href='/Board/FreeBoard.jsp';</script>");
