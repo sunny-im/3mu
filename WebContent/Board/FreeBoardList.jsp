@@ -34,10 +34,10 @@
 			%>
     <tr>
       <th scope="row"><%= i%></th>
-      <td><a href="#" style="text-decoration-line: none; color:black;"><%=board.getFtitle()%></a></td>
+      <td><a href="FreeBoardView.jsp?id=<%=board.getFno()%>" style="text-decoration-line: none; color:black;"><%=board.getFtitle()%></a></td>
       <td><%=board.getFauthor()%></td>
       <td><%=board.getFdate()%></td>
-      <td><a href="BoardView.jsp?id=<%=board.getFno()%>" class="btn btn-dark" role="button">View &raquo;</a></td>
+      <td><a href="FreeBoardView.jsp?id=<%=board.getFno()%>" class="btn btn-dark" role="button">View &raquo;</a></td>
     </tr>
 
 			<%
@@ -48,7 +48,8 @@
 		</tbody>
 	</table>
 	<div class="col-sm-offset-10 col-sm-2">
-		<button type="button" class="btn btn-dark" type="submit">Write</button>
+		<!-- <button type="button" class="btn btn-dark" type="submit">Write</button> -->
+		<input type="button" onClick="location.href='FreeBoard.jsp'" class="btn btn-dark" value="WRITE">
 	</div>
 	
 	<%@ include file = "/footer.jsp" %>	

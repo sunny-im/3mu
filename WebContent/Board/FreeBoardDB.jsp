@@ -59,7 +59,7 @@
 		fcontent = fcontent.replace("\r\n","<br>");   
 		
 		if(dao.insert(ftitle, fauthor, fcontent, fimage)) {
-			response.sendRedirect("/Board/FreeBoardList.jsp");
+			response.sendRedirect("FreeBoardList.jsp");
 		}else {
 			out.print("<script>alert('Failed to upload :( Try again '); location.href='/Board/FreeBoard.jsp';</script>");
 		}

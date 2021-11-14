@@ -2,7 +2,7 @@ package DAO;
 
 public class BoardObj {
 
-	private String fno,ftitle,fcontent,fauthor,fimage,fdate;
+	private String fno,ftitle,fauthor,fcontent,fimage,fdate;
 
 	public BoardObj(String fno, String ftitle, String fcontent, String fauthor, String fimage, String fdate) {
 		super();

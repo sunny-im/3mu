@@ -53,7 +53,7 @@
          </div>
          <div class="form-group  row">
             <div class="col-sm-offset-2 col-sm-10 ">
-               <input type="submit" class="btn btn-dark" value="UPDATE " > 
+               <!-- <input type="submit" class="btn btn-dark" value="UPDATE " > --> 
                <input type="button" onClick="location.href='FreeBoardList.jsp'" class="btn btn-dark" value="LIST">
             </div>
          </div>
