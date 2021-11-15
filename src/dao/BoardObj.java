@@ -1,15 +1,15 @@
-package DAO;
+package dao;
 
 public class BoardObj {
 
-	private String fno,ftitle,fauthor,fcontent,fimage,fdate;
+	private String fno,ftitle,id,fcontent,fimage,fdate;
 
-	public BoardObj(String fno, String ftitle, String fcontent, String fauthor, String fimage, String fdate) {
+	public BoardObj(String fno, String ftitle, String id, String fcontent, String fimage, String fdate) {
 		super();
 		this.fno = fno;
 		this.ftitle = ftitle;
+		this.id = id;
 		this.fcontent = fcontent;
-		this.fauthor = fauthor;
 		this.fimage = fimage;
 		this.fdate = fdate;
 	}
@@ -22,13 +22,13 @@ public class BoardObj {
 		return ftitle;
 	}
 
+	public String getId() {
+		return id;
+	}
 	public String getFcontent() {
 		return fcontent;
 	}
 
-	public String getFauthor() {
-		return fauthor;
-	}
 
 	public String getFimage() {
 		return fimage;

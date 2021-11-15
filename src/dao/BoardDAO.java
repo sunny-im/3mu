@@ -1,10 +1,9 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.naming.NamingException;
@@ -20,7 +19,7 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM board";
+			String sql = "SELECT * FROM board order by fdate desc";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
@@ -30,7 +29,7 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 			
 			while (rs.next()) {
 				boards.add(new BoardObj(rs.getString("fno"),rs.getString("ftitle"),
-						rs.getString("fcontent"),rs.getString("fauthor"),rs.getString("fimage"),rs.getString("fdate")));
+						rs.getString("id"),rs.getString("fcontent"),rs.getString("fimage"),rs.getString("fdate")));
 			} return boards;
 			
 		} finally {
@@ -43,20 +42,19 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 		}
 	}
 	
-	public boolean insert(String ftitle, String fauthor, String fcontent,  String fimage ) throws NamingException, SQLException {
+	public boolean insert(String ftitle, String id, String fcontent,  String fimage ) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "INSERT INTO board (ftitle, fauthor, fcontent, fimage, fdate) VALUES (?,?,?,?,?)";
+			String sql = "INSERT INTO board (ftitle, id, fcontent, fimage) VALUES (?,?,?,?)";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, ftitle);
-				pstmt.setString(2, fauthor);
+				pstmt.setString(2, id);
 				pstmt.setString(3, fcontent);
 				pstmt.setString(4, fimage);
-				pstmt.setString(5, LocalDate.now().toString());
 				
 			int count = pstmt.executeUpdate();
 			return (count == 1) ? true : false;
@@ -83,12 +81,12 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 			
 			String no = rs.getString(1);
 			String title = rs.getString(2);
-			String author = rs.getString(3);
+			String id = rs.getString(3);
 			String content = rs.getString(4);
 			String image = rs.getString(5);
 			String date = rs.getString(6);
 			
-			BoardObj board = new BoardObj(no,title,author,content,image,date);
+			BoardObj board = new BoardObj(no,title,id,content,image,date);
 			return board;
 			
 		} finally {

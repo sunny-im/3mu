@@ -1,5 +1,5 @@
-<%@page import="DAO.BoardDAO"%>
-<%@page import="DAO.BoardObj"%>
+<%@page import="dao.BoardDAO"%>
+<%@page import="dao.BoardObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Board View</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
 	<%@ include file = "/header.jsp" %>
@@ -34,13 +35,13 @@
          <div class="form-group  row">
             <label class="col-sm-2">AUTHOR</label>
             <div class="col-sm-3">
-              <input name="author" type="text" class="form-control" value = "<%=board.getFauthor() %>" >
+              <input name="author" type="text" class="form-control" value = "<%=board.getId() %>" >
             </div>
          </div>
          <div class="form-group  row">
             <label class="col-sm-2">CONTENT</label>
             <div class="col-sm-10">
-           	 	<textarea name="description" rows="5" cols="20" class="form-control" >"<%=board.getFcontent() %>"</textarea>
+           	 	<div>"<%=board.getFcontent() %>"</div>
             	<img src = "/images/<%=board.getFimage() %>" style ="width: 50%">
             </div>
          </div>
