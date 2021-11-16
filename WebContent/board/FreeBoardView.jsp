@@ -19,11 +19,12 @@
 	</div>	
 	
 	<%
-		String a = request.getParameter("id");
-		BoardObj board = (new BoardDAO()).getView(a);
+		String fno = request.getParameter("fno");
+		String fid = request.getParameter("id");
+		BoardObj board = (new BoardDAO()).getView(fid);
+		
 		
 	%>
-
 <div class="container">
       <form name="newMember" class="form-horizontal"  action="FreeBoardDB.jsp" method="post" enctype="multipart/form-data" ">
          <div class="form-group  row">
@@ -32,17 +33,21 @@
                 <input name="title" type="text" class="formcontrol" value = "<%=board.getFtitle() %>" >
             </div>
          </div>
+         
          <div class="form-group  row">
             <label class="col-sm-2">AUTHOR</label>
             <div class="col-sm-3">
-              <input name="author" type="text" class="form-control" value = "<%=board.getId() %>" >
+              <input name="id" type="text" class="form-control" value = "<%=board.getId() %>" >
             </div>
          </div>
+         
          <div class="form-group  row">
             <label class="col-sm-2">CONTENT</label>
             <div class="col-sm-10">
            	 	<div>"<%=board.getFcontent() %>"</div>
-            	<img src = "/images/<%=board.getFimage() %>" style ="width: 50%">
+           	 	
+            	<img src = "images/<%=board.getFimage() %>" style ="width: 50%">
+           
             </div>
          </div>
          
@@ -52,10 +57,13 @@
                <%=board.getFdate() %>
             </div>
          </div>
+         
          <div class="form-group  row">
             <div class="col-sm-offset-2 col-sm-10 ">
                <!-- <input type="submit" class="btn btn-dark" value="UPDATE " > --> 
                <input type="button" onClick="location.href='FreeBoardList.jsp'" class="btn btn-dark" value="LIST">
+               <%-- <input type="submit" onClick="location.href='FreeBoardDeleteDB.jsp?ftitle=<%=ftitle %>'"class="btn btn-dark" value="DELETE"> --%>
+               <a href="FreeBoardDeleteDB.jsp?fno=<%=fno %>" class="delete btn btn-default">삭제</a>
             </div>
          </div>
       </form>

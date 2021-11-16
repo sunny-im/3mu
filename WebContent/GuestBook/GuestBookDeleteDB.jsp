@@ -14,11 +14,11 @@
     String gpass = request.getParameter("pw");
     
     GuestBookDAO dao = new GuestBookDAO();
-    String password = dao.getPwd(gname);
-
-    if (gpass.equals(password)) {
-		dao.delete(gpass);
-		response.sendRedirect("GuestBook.jsp");
+    String password = dao.getPwd(gpass);
+    
+    if (gpass.equals(password)) { 
+			response.sendRedirect("GuestBook.jsp");
+		
 	} else {
 %>
     <script>

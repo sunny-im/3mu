@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
-        </tr>
+        </tr>https://us05web.zoom.us/j/82342540518?pwd=aHBWam1BNDhwMEc1MGFWN1BnUmU0UT09
     </table>
 </form> -->
 

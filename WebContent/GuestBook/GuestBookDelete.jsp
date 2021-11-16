@@ -13,15 +13,16 @@
 	String gname = request.getParameter("gname");
 %>
 <form method="post" action="GuestBookDelete.jsp">
-    <input type="hidden" name="gname" value=<%=gname%>>
+    <input type="hidden" name="gname" id="gname" value="<%=gname%>">
     <table>
         <tr>
             <td>비밀번호</td>
-            <td><input type="password" name="pw"></td>
-            <td><input type="submit" value="삭제"></td>
+            <td><input type="password" name="pw" id="pw"></td>
+            <td><input type="submit" value="삭제"/></td>
+            <td><input type="button" value="취소" onclick="history.back(-1)"/></td>
         </tr>
     </table>
 </form>
-<a href="GuestBook.jsp">이전페이지</a>
+
 </body>
 </html>

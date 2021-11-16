@@ -62,4 +62,50 @@ public class GuestBookDAO {
         	conn.close(); pstmt.close();
         }
     }
+ // 비밀번호를 조회
+    public String getPwd(String gname) throws NamingException, SQLException{
+        String pwd = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+        	conn = ConnectionPool.get();
+
+            String sql = "SELECT gpassword FROM guestbook WHERE gname=?";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, gname);
+            rs = pstmt.executeQuery();
+
+            if(rs.next()) {
+                pwd = rs.getString(1);
+            }
+        }
+        finally {
+        	conn.close(); pstmt.close(); rs.close();
+        } return pwd;
+
+        
+    }
+
+    public void delete(String gname) throws NamingException, SQLException{
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+        	conn = ConnectionPool.get();
+
+            String sql = "DELETE FROM guestbook WHERE gname=?";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, gname);
+            pstmt.executeUpdate();
+            
+        }
+        finally {
+        	conn.close(); pstmt.close(); 
+        }
+    }
 }
+

@@ -32,10 +32,11 @@
 			</thead>
 			<tbody>
 				<%
+				int i = boards.size();
 				for (BoardObj board : boards) {
 				%>
 				<tr>
-					<th scope="row"><%=board.getFno()%></th>
+					<th scope="row"><%=i %></th>
 					<td><a href="FreeBoardView.jsp?id=<%=board.getFno()%>"
 						style="text-decoration-line: none; color: black;"><%=board.getFtitle()%></a></td>
 					<td><%=board.getId()%></td>
@@ -45,6 +46,7 @@
 				</tr>
 
 				<%
+				i--;
 				}
 				%>
 

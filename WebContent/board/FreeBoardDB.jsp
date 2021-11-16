@@ -24,7 +24,6 @@
 		
 	
 		ServletFileUpload sfu = new ServletFileUpload(new DiskFileItemFactory());
-		
 		List items = sfu.parseRequest(request);
 		
 		Iterator iter = items.iterator();
@@ -32,15 +31,15 @@
 	 	while(iter.hasNext()) {   
 			FileItem item = (FileItem) iter.next();
 	 		String name = item.getFieldName();
-	 		
-			if(item.isFormField()) {	 
+
+	 		if(item.isFormField()) {	 
 				String value = item.getString("utf-8");
 				if (name.equals("title")) ftitle = value;
 				else if (name.equals("id")) id = value;
 				else if (name.equals("content")) fcontent = value;
 			
 			} 
-			else {    
+	 		else {    
 				if (item.getName() == "") {
 					
 				}
@@ -54,9 +53,8 @@
 				}
 			}
 		}
-		
 	 	BoardDAO dao = new BoardDAO();
-		fcontent = fcontent.replace("\r\n","<br>");   
+		/* fcontent = fcontent.replace("\r\n","<br>"); */
 		
 		if(dao.insert(ftitle, id, fcontent, fimage)) {
 			response.sendRedirect("FreeBoardList.jsp");

@@ -4,7 +4,7 @@ public class BoardObj {
 
 	private String fno,ftitle,id,fcontent,fimage,fdate;
 
-	public BoardObj(String fno, String ftitle, String id, String fcontent, String fimage, String fdate) {
+	public BoardObj(String fno, String ftitle, String id, String fcontent,  String fimage, String fdate) {
 		super();
 		this.fno = fno;
 		this.ftitle = ftitle;
@@ -25,10 +25,10 @@ public class BoardObj {
 	public String getId() {
 		return id;
 	}
+	
 	public String getFcontent() {
 		return fcontent;
 	}
-
 
 	public String getFimage() {
 		return fimage;
