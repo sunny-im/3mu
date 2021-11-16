@@ -5,9 +5,11 @@
 <head>
 <title>회원 가입</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
+	
 	<div class="body-container">
 	<div class="jumbotron">
 		<div class="container">
@@ -16,7 +18,7 @@
 	</div>
 
 	<div class="container">
-		<form name="newMember" class="form-horizontal"  action="joinCheck.jsp" method="post" onsubmit="return checkForm()">
+		<form name="newMember" class="form-horizontal"  action="joinDB.jsp" method="post" onsubmit="return checkForm()">
 			<div class="form-group  row">
 				<label class="col-sm-2 ">아이디</label>
 				<div class="col-sm-3">
@@ -35,13 +37,13 @@
 						<input name="password_confirm" type="password" class="form-control" placeholder="password confirm" >
 					</div><br>
 			</div>
-			<div>
+			<div  class="form-group  row">
 			<select name="quiz">
 				<option value="1">나의 보물 1호는?</option>
 				<option value="2">나의 출생지는?</option>
 				<option value="3">뭘 넣으면 좋을까?</option>
 				<option value="4">진짜 지쟈스크라이스트다?</option>
-			</select><br>
+			</select>
 			<input type="text" name="answer" maxlength="10" placeholder="비밀번호 찾기 답변" >
 			</div>
 			<div class="form-group  row">

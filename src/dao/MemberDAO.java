@@ -5,13 +5,70 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.naming.NamingException;
 
+import com.mysql.fabric.xmlrpc.base.Member;
+
+import dao.*;
 import util.ConnectionPool;
 
 public class MemberDAO {
+	
+	public String findPW(String id, String quiz, String answer) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "select * from member where id = ? and quiz = ? and answer = ?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.setString(2, quiz);
+				pstmt.setString(3, answer);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String pw = rs.getString("password");
+				return pw;
+			}else {
+				String pw = null;
+				return null;
+			}
+		}finally {
+			if (rs != null) rs.close();
+			if (pstmt != null)pstmt.close();
+			if (conn != null)conn.close();
+		}
+	}
 
+	public String findID(String name, String phone) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "select * from member where name = ? and phone = ?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String id = rs.getString(1);
+				return id;
+			} else {
+				String id = null;
+				return id;
+			}
+		}finally {
+			if (rs != null) rs.close();
+			if (pstmt != null)pstmt.close();
+			if (conn != null)conn.close();
+		}
+	}
+	
 	public int login(String id, String password) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -104,23 +161,32 @@ public class MemberDAO {
 	}
 
 
-public MemberObj getDetail(String cid) throws NamingException, SQLException{
+	public MemberObj getDetail(String id) throws NamingException, SQLException{
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM member WHERE cid = ?";
+			String sql = "SELECT * FROM member WHERE id = ?";
 			
 			conn = ConnectionPool.get();
 			stmt = conn.prepareStatement(sql);
-				stmt.setNString(1, cid);
+				stmt.setString(1, id);
 			rs = stmt.executeQuery();
-		
-			rs.next();
+
+//			Member MemberObj = new Member();
+//			
+//			dao.MemberObj member = null;
+//			while(rs.next()) {
+//				member = new MemberObj(rs.getString("id"),rs.getString("password"),rs.getString("name"),
+//						rs.getString("gender"),rs.getString("birth"),rs.getString("email"),rs.getString("phone"),
+//						rs.getString("address"),rs.getString("quiz"),rs.getString("answer"),rs.getString("regiday"),rs.getString("admin"));
+//			} return member;
 			
-			String id = rs.getString(1); 
+			if (rs.next()) {
+	
+			String cid = rs.getString(1); 
 			String ps = rs.getString(2);
 			String name = rs.getString(3); 
 			String gender = rs.getString(4);			
@@ -133,19 +199,56 @@ public MemberObj getDetail(String cid) throws NamingException, SQLException{
 			String date = rs.getString(11);
 			String admin = rs.getString(12);
 			
-			MemberObj member = new MemberObj(id,ps,name,gender,birth,email,phone,addr,quiz,answer,date,admin);
-
+			MemberObj member = new MemberObj(cid,ps,name,gender,birth,email,phone,addr,quiz,answer,date,admin);
 			return member;
-  
+			} else {
+				MemberObj member = null;
+				return member;
+			}
 		} finally {
 			if(rs != null) rs.close();
 			if(stmt != null) stmt.close();
 			if(conn != null) conn.close();
 		}
 	}
+	public int delete(String id) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM member WHERE id = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				
+			int count = pstmt.executeUpdate();
+			return (count == 1 ) ? 1 : 0;
+			
+		} finally {
+			conn.close(); pstmt.close();
+		}
+	}
 
-
-
-
-
+	public void modifyMember(String password, String gender, String birth, String email, String phone, String address) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE member SET password=?, gender=?, birth=?, email=?, phone=?, address=? WHERE id=?";
+					
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, password);
+				pstmt.setString(2, gender);
+				pstmt.setString(3, birth);
+				pstmt.setString(4, email);
+				pstmt.setString(5, phone);
+				pstmt.setString(6, address);
+				
+			pstmt.executeUpdate();
+		} finally {
+			conn.close(); pstmt.close();
+		}
+	}
 }

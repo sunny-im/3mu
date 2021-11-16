@@ -10,15 +10,14 @@
 <body>
 <%@ include file = "/header.jsp" %>
 	<div class="alert alert-secondary" role="alert">
-		<h1 class="display-3">회원 정보</h1>
+		<h3 class="display-3">회원 정보</h3>
 	</div>
 <%
-	String a = "555";
-	MemberObj member = (new MemberDAO()).getDetail(a);
+	MemberObj member = (new MemberDAO()).getDetail(id);
 %>
 
 	<div class="container">
-		<form name="newMember" class="form-horizontal"  action="joinCheck.jsp" method="post" onsubmit="return checkForm()">
+		<form name="newMember" class="form-horizontal"  action="joinDB.jsp" method="post" onsubmit="return checkForm()">
 			<div class="form-group  row">
 				<label class="col-sm-2 ">아이디</label>
 				<div class="col-sm-3">
@@ -31,18 +30,18 @@
 					<%=member.getName() %>
 				</div>
 			</div>
-			<div class="form-group  row">
+		<%-- 	<div class="form-group  row">
 				<label class="col-sm-2">성별</label>
 				<div class="col-sm-10">
-					<%=member.getGender() %>
+					<%=member.getCgender() %>
 				</div>
-			</div>
-			<div class="form-group row">
+			</div> --%>
+<%-- 			<div class="form-group row">
 				<label class="col-sm-2">생일</label>
 				<div class="col-sm-4  ">
-					<%=member.getBirth() %>
+					<%=member.getCbirth() %>
 				</div>
-			</div>
+			</div> --%>
 			<div class="form-group  row ">
 				<label class="col-sm-2">이메일</label>
 				<div class="col-sm-10">
@@ -71,8 +70,8 @@
 			</div>
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="submit" class="btn btn-primary " value="수정" > 
-					<input type="reset" class="btn btn-primary " value="목록 " >
+				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">Update &raquo;</a>
+         <a href="DeleteDB.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">Delete &raquo;</a>
 				</div>
 			</div>
 		</form>
@@ -80,10 +79,7 @@
 
 
 
-
-
-
-
 <%@ include file = "/footer.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>
