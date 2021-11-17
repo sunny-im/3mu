@@ -19,13 +19,13 @@
 	<div class="container" style="padding-top:30px;">
 	  <form name="newProduct" class="form-horizontal"  action="FreeBoardDB.jsp" method="post" enctype="multipart/form-data">
 	    <div class="form-group  row">
-	       <label class="col-sm-2">Title</label>
+	       <label class="col-sm-2">제목</label>
 	       	 <div class="col-sm-4">
 	           <input name="title" type="text" class="form-control" placeholder="Enter the Title" >
 	    </div>
 	</div>
 	   <div class="form-group  row" style="display:none;">
-	      <label class="col-sm-2">Name</label>
+	      <label class="col-sm-2">작성자</label>
 	         <div class="col-sm-4">
 	           <input name="id" type="text" class="form-control" value="<%=id%>"placeholder="Enter the name" >
 	   </div>
@@ -36,14 +36,14 @@
 
 
        <div class="form-group  row">
-            <label class="col-sm-2">File</label>
+            <label class="col-sm-2">첨부파일</label>
             <div class="col-sm-4">
                <input name="filename" type="file" class="form-control" >
             </div>
        </div>
 	<div class="col-sm-offset-5 col-sm-5">
-		<input type="submit" class="btn btn-dark" value="SUBMIT " > 
-	    <input type="reset" class="btn btn-dark" value="CANCEL" onclick="reset()" >
+		<input type="submit" class="btn btn-dark" value="글쓰기 " > 
+	    <input type="reset" class="btn btn-dark" value="취소" onclick="reset()" >
 	</div>
 	
 	  </form>

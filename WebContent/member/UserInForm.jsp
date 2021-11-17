@@ -30,14 +30,15 @@
 	<%
       ArrayList<MemberObj> members = (new MemberDAO()).getList();
    %>
-	<table class="table table-hover">
+  <div class="body-container container">
+	<table class="table table-striped">
 	  <thead>
 	    <tr>
-	      <th scope="col"></th>
-	      <th scope="col">ID</th>
-	      <th scope="col">NAME</th>
-	      <th scope="col">EMAIL</th>
-	      <th scope="col">PHONE</th>
+	      <th scope="col">번호</th>
+	      <th scope="col">아이디</th>
+	      <th scope="col">이름</th>
+	      <th scope="col">이메일</th>
+	      <th scope="col">휴대폰 번호</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -51,7 +52,7 @@
 		      <td><%=member.getName() %></td>
 		      <td><%=member.getEmail() %></td>
 		      <td><%=member.getPhone() %></td>
-		      <td><a href="detailMember.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">View &raquo;</a></td>
+		      <td><a href="detailMember.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">상세보기 &raquo;</a></td>
    		</tr>
    		
          <%
@@ -60,6 +61,7 @@
          %>
 		</tbody>
 	</table>
+</div>
 
 
 

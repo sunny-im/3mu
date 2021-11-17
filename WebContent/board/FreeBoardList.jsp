@@ -22,13 +22,14 @@
 		<%
 			ArrayList<BoardObj> boards = (new BoardDAO()).getList();
 		%>
-		<table class="table table-hover">
+	<div class="body-container container">
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col"></th>
-					<th scope="col">Title</th>
-					<th scope="col">Author</th>
-					<th scope="col">Date</th>
+					<th scope="col">번호</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성자</th>
+					<th scope="col">날짜</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,11 +39,11 @@
 				<tr>
 					<th scope="row"><%=board.getFno()%></th>
 					<td><a href="FreeBoardView.jsp?id=<%=board.getFno()%>"
-						style="text-decoration-line: none; color: black;"><%=board.getFtitle()%></a></td>
+						style="text-decoration-line: none; color: dark-blue;"><%=board.getFtitle()%></a></td>
 					<td><%=board.getId()%></td>
 					<td><%=board.getFdate()%></td>
 					<td><a href="FreeBoardView.jsp?id=<%=board.getFno()%>"
-						class="btn btn-dark" role="button">View &raquo;</a></td>
+						class="btn btn-dark" role="button">게시글 확인 &raquo;</a></td>
 				</tr>
 
 				<%
@@ -54,9 +55,10 @@
 		<div class="col-sm-offset-10 col-sm-2">
 			<!-- <button type="button" class="btn btn-dark" type="submit">Write</button> -->
 			<input type="button" onClick="location.href='FreeBoard.jsp'"
-				class="btn btn-dark" value="WRITE">
+				class="btn btn-dark" value="글쓰기">
 		</div>
 	</div>
+	
 	<%@ include file = "/footer.jsp" %>	
 </body>
 </html>
