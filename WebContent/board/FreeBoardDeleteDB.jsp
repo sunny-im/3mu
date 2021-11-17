@@ -1,4 +1,4 @@
-<%@ page import = "dao.*" %>
+<%@ page import = "dao.BoardDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,14 +13,12 @@
 	String fno = request.getParameter("fno");
 
 	BoardDAO dao = new BoardDAO();
-	/* int code = dao.delete(a); */
-
 	
 	if (dao.delete(fno)) {
-	response.sendRedirect("FreeBoardList.jsp");
+			out.print("<script>alert('게시글 삭제 완료!'); location.href='/board/FreeBoardList.jsp';</script>");
 	} else {
 		response.sendRedirect("FreeBoard.jsp");
-	}
+	} 
 %>
 
 </body>

@@ -3,7 +3,9 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
-   <p class="navbar-text navbar-right">Made by ssammooo <a href="https://github.com/dabongbong/3mu" class="navbar-link">Github</a></p>
+	   <p class="navbar-text navbar-right">Made by ssammooo <img src="/img/sticker.png" height=30 weight=30>
+	   		<a href="https://github.com/dabongbong/3mu" class="navbar-link">Github</a>
+	   </p>
   </div>
 </nav>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

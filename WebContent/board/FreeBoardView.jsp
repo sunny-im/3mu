@@ -7,68 +7,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <title>Board View</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
 	<%@ include file = "/header.jsp" %>
-	
-<div class="panel panel-success">
-	<div class = "container">
-		<h3>View</h3><br>
-	</div>	
+
 	
 	<%
+		String a = request.getParameter("id");
 		String fno = request.getParameter("fno");
-		String fid = request.getParameter("id");
-		BoardObj board = (new BoardDAO()).getView(fid);
-		
+		BoardObj board = (new BoardDAO()).getView(a);
+		String fimage = board.getFimage();
 		
 	%>
-<div class="container">
-      <form name="newMember" class="form-horizontal"  action="FreeBoardDB.jsp" method="post" enctype="multipart/form-data" ">
-         <div class="form-group  row">
-            <label class="col-sm-2 ">TITLE</label>
-            <div class="col-sm-3">
-                <input name="title" type="text" class="formcontrol" value = "<%=board.getFtitle() %>" >
-            </div>
-         </div>
-         
-         <div class="form-group  row">
-            <label class="col-sm-2">AUTHOR</label>
-            <div class="col-sm-3">
-              <input name="id" type="text" class="form-control" value = "<%=board.getId() %>" >
-            </div>
-         </div>
-         
-         <div class="form-group  row">
-            <label class="col-sm-2">CONTENT</label>
-            <div class="col-sm-10">
-           	 	<div>"<%=board.getFcontent() %>"</div>
-           	 	
-            	<img src = "images/<%=board.getFimage() %>" style ="width: 50%">
-           
-            </div>
-         </div>
-         
-         <div class="form-group  row">
-            <label class="col-sm-2 ">Registration DATE</label>
-            <div class="col-sm-5">
-               <%=board.getFdate() %>
-            </div>
-         </div>
-         
-         <div class="form-group  row">
+<div class="body-container container">
+<div class="jumbotron">
+	<h2 class="col-md-12 text-center"> <%=board.getFtitle() %></h2>
+	<div class="col-md-12 text-center">
+		<div class="col-md-4 col-md-offset-2"><small>작성자 : <%=board.getId() %></small></div>
+		<div class="col-md-4"><small><%=board.getFdate() %></small></div>
+	</div>
+	<div class="img"><img class="img-rounded center-block" src="/images/<%=fimage%>" style="width: 40%;"></div>
+	<div class="col-md-12 text-center"><%=board.getFcontent() %></div>
+	
+</div>
+	<div class="form-group  row">
             <div class="col-sm-offset-2 col-sm-10 ">
                <!-- <input type="submit" class="btn btn-dark" value="UPDATE " > --> 
                <input type="button" onClick="location.href='FreeBoardList.jsp'" class="btn btn-dark" value="LIST">
-               <%-- <input type="submit" onClick="location.href='FreeBoardDeleteDB.jsp?ftitle=<%=ftitle %>'"class="btn btn-dark" value="DELETE"> --%>
-               <a href="FreeBoardDeleteDB.jsp?fno=<%=fno %>" class="delete btn btn-default">삭제</a>
+               <input type="button" onClick="location.href='FreeBoardDeleteDB.jsp?fno=<%=fno %>'" class="btn btn-dark" value="DELETE">
             </div>
          </div>
-      </form>
-   </div>
-  </div>
+	<table class="table table-striped">
 	<%@ include file = "/footer.jsp" %>	
 </body>
 </html>

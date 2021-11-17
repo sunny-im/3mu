@@ -6,11 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 정보</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/m-boardDetail.css">
 </head>
 <body>
 <%@ include file = "/header.jsp" %>
-	<div class="alert alert-secondary" role="alert">
-		<h3 class="display-3">회원 정보</h3>
+	<div class="jumbotron">
+		<div class="container">
+			<h2 class="display-3">회원정보<img src="/img/logo02.png" height="100"></h2>
+		</div>
 	</div>
 <%
 	MemberObj member = (new MemberDAO()).getDetail(id);

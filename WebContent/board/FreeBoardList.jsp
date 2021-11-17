@@ -7,16 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <title>Board</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
 	<%@ include file = "/header.jsp" %>
-	<div class="body-container container">
+<div class="jumbotron">
 		<div class="container">
-			<h3>Board</h3>
-			<br>
+			<h2 class="display-3">자유게시판<img src="/img/logo05.png" height="100"></h2>
 		</div>
+	</div>
 
 		<%
 			ArrayList<BoardObj> boards = (new BoardDAO()).getList();
@@ -32,11 +33,10 @@
 			</thead>
 			<tbody>
 				<%
-				int i = boards.size();
 				for (BoardObj board : boards) {
 				%>
 				<tr>
-					<th scope="row"><%=i %></th>
+					<th scope="row"><%=board.getFno()%></th>
 					<td><a href="FreeBoardView.jsp?id=<%=board.getFno()%>"
 						style="text-decoration-line: none; color: black;"><%=board.getFtitle()%></a></td>
 					<td><%=board.getId()%></td>
@@ -46,7 +46,6 @@
 				</tr>
 
 				<%
-				i--;
 				}
 				%>
 

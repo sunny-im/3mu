@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context>
-	<Resource name ="jdbc/killers61" 
-		auth="Container" 
-		type = "javax.sql.DataSource" 
-		driverClassName ="org.mariadb.jdbc.Driver"
-		url="jdbc:mariadb://localhost:3306/killers61?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC" 
-		username ="killers61" 
-		password="ds2332811"
-		maxTotal="16"
-		maxIdle ="4"
-		maxWaitMillis="-1"/>
-</Context>
+<context>
+	<Resource name="jdbc/ssammu"
+	auth = "Container"
+	type = "javax.sql.DataSource"
+	driverClassName = "com.mysql.jdbc.Driver"
+	url = "jdbc:mysql://localhost:3306/ssammu?serverTimezone=UTC"
+	username = "root"
+	password = "12341234"
+	maxTotal = "16"
+	maxIdle = "4"
+	maxWaitMillis = "-1" />
+</context>

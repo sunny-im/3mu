@@ -5,6 +5,7 @@
 <%
 	String cid = request.getParameter("id");
 	String cpass = request.getParameter("pass");
+
 	MemberDAO dao = new MemberDAO();
 	int code = dao.login(cid, cpass);
 	
@@ -17,4 +18,6 @@
 		out.print("<script>alert('" + cid + "님 환영합니다!'); location.href='/main.jsp'; </script>");
 	}
  
+
+
 %>

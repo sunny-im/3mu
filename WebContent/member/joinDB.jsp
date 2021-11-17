@@ -10,10 +10,7 @@
 	String pass = request.getParameter("password");
 	String name = request.getParameter("name");
 	String gender = request.getParameter("gender");
-	String year = request.getParameter("birthyy");
-	String month = request.getParameter("birthmm");
-	String day = request.getParameter("birthdd");	
-	String birth = year + "/" + month + "/" + day;
+	String birth = request.getParameter("birth");	
 	 
 	String mail = request.getParameter("mail");
 	String phone = request.getParameter("phone");

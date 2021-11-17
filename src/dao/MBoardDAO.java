@@ -6,6 +6,29 @@ import javax.naming.NamingException;
 import util.ConnectionPool;
 
 public class MBoardDAO {
+	public ArrayList<MBoardObj> serch(String msub, String mtitle) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from MBoard where msub = ? and mtitle like";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql + "'%"+mtitle+"%'");
+				pstmt.setString(1, msub);
+			rs = pstmt.executeQuery();
+			
+			ArrayList<MBoardObj> mboards = new ArrayList<MBoardObj>();
+			
+			while(rs.next()) {
+				mboards.add(new MBoardObj(rs.getString("mno"),rs.getString("id"),rs.getString("msub"),rs.getString("mtitle"),rs.getString("mcontent"),rs.getString("mimg"),rs.getString("mtime")));
+			}
+			return mboards;
+		}finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) rs.close();
+			if(conn != null) conn.close();
+		}
+	}
 	public ArrayList<MBoardObj> getlist() throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -31,26 +54,7 @@ public class MBoardDAO {
 		}
 	}
 	
-	public boolean insertreply(String mno, String id, String content) throws NamingException, SQLException {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			String sql = "insert into mreply(mno, id, content) values(?,?,?)";
-			
-			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, mno);
-				pstmt.setString(2, id);
-				pstmt.setString(3, content);
-			
-			int count = pstmt.executeUpdate();
-			return(count == 1)? true:false;
-		}finally {
-			if(pstmt != null)pstmt.close();
-			if(conn != null)conn.close();
-		}
-	}
+
 	
 	public boolean insert(String id, String msub, String mtitle, String mcontent, String mimg) throws NamingException, SQLException {
 		Connection conn = null;
@@ -107,6 +111,25 @@ public class MBoardDAO {
 			if (rs != null) rs.close();
 			if (pstmt != null)pstmt.close();
 			if (conn != null)conn.close();
+		}
+	}
+	
+	public boolean del(String mno) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "delete from MBoard where mno = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, mno);
+				
+			int count = pstmt.executeUpdate();
+			return (count == 1)? true:false;
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
 		}
 	}
 	

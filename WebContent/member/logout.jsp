@@ -2,5 +2,7 @@
     pageEncoding="UTF-8"%>
     <%
 	session.invalidate();
+
 	out.print("<script>alert(\"로그아웃 완료.\"); location.href='/index.html';</script>");
+
 	%>    

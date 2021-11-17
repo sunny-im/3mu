@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <title>Free Board</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -16,40 +17,34 @@
 <%@ include file = "/header.jsp" %>
 
 	<div class="container" style="padding-top:30px;">
-	
 	  <form name="newProduct" class="form-horizontal"  action="FreeBoardDB.jsp" method="post" enctype="multipart/form-data">
-	    
 	    <div class="form-group  row">
 	       <label class="col-sm-2">Title</label>
 	       	 <div class="col-sm-4">
 	           <input name="title" type="text" class="form-control" placeholder="Enter the Title" >
-	    	</div>
-		</div>
-	   
-	    <div class="form-group  row" style="display:none;">
+	    </div>
+	</div>
+	   <div class="form-group  row" style="display:none;">
 	      <label class="col-sm-2">Name</label>
 	         <div class="col-sm-4">
-	           <input name="id" type="text" class="form-control" value="<%=id %>" placeholder="Enter the name" >
-	  		 </div>
-		</div>
-		
+	           <input name="id" type="text" class="form-control" value="<%=id%>"placeholder="Enter the name" >
+	   </div>
+	</div>
 		<div class="container" style="padding-top: 30px;">
 			<textarea name="content" id="myEditor" class="form-control" cols="30" rows="10"></textarea>
 		</div>
 
 
-       	<div class="form-group  row">
+       <div class="form-group  row">
             <label class="col-sm-2">File</label>
-        	<div class="col-sm-4">
+            <div class="col-sm-4">
                <input name="filename" type="file" class="form-control" >
             </div>
        </div>
-	
-		<div class="col-sm-offset-5 col-sm-5">
-			<input type="submit" class="btn btn-dark" value="SUBMIT " > 
-	    	<input type="reset" class="btn btn-dark" value="CANCEL" onclick="reset()" >
-	    	
-		</div>
+	<div class="col-sm-offset-5 col-sm-5">
+		<input type="submit" class="btn btn-dark" value="SUBMIT " > 
+	    <input type="reset" class="btn btn-dark" value="CANCEL" onclick="reset()" >
+	</div>
 	
 	  </form>
 	</div>

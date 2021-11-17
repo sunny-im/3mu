@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.naming.NamingException;
@@ -20,7 +19,7 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM board";
+			String sql = "SELECT * FROM board order by fdate desc";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
@@ -30,7 +29,7 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 			
 			while (rs.next()) {
 				boards.add(new BoardObj(rs.getString("fno"),rs.getString("ftitle"),
-						rs.getString("fcontent"),rs.getString("id"),rs.getString("fimage"),rs.getString("fdate")));
+						rs.getString("id"),rs.getString("fcontent"),rs.getString("fimage"),rs.getString("fdate")));
 			} return boards;
 			
 		} finally {
@@ -48,7 +47,7 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "INSERT INTO board (ftitle, id, fcontent, fimage, fdate) VALUES (?,?,?,?,?)";
+			String sql = "INSERT INTO board (ftitle, id, fcontent, fimage) VALUES (?,?,?,?)";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
@@ -56,7 +55,6 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 				pstmt.setString(2, id);
 				pstmt.setString(3, fcontent);
 				pstmt.setString(4, fimage);
-				pstmt.setString(5, LocalDate.now().toString());
 				
 			int count = pstmt.executeUpdate();
 			return (count == 1) ? true : false;
@@ -95,23 +93,23 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 			rs.close(); pstmt.close(); conn.close();
 		}
 	} 
-	
 	public boolean delete(String fno) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE FROM board WHERE fno=?";
+			String sql ="DELETE FROM board WHERE fno = ?";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, fno);
 				
 			int count = pstmt.executeUpdate();
-			return (count == 1 ) ? true : false;
-			
-		} finally {
-			pstmt.close(); conn.close();
+			return (count == 1)? true:false;
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
 		}
 	}
+	
 }

@@ -21,42 +21,6 @@ public class MemberObj {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public void setQuiz(String quiz) {
-		this.quiz = quiz;
-	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-	public void setRegiday(String regiday) {
-		this.regiday = regiday;
-	}
-	public void setAdmin(String admin) {
-		this.admin = admin;
-	}
 	public String getPassword() {
 		return password;
 	}

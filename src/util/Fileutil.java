@@ -3,7 +3,7 @@ package util;
 import java.io.*;
 
 
-public class FileUtil {
+public class Fileutil {
 
 	public static void saveImage(String root, String fname, byte[] data) throws IOException {
 		
