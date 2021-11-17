@@ -31,7 +31,7 @@
 	   </div>
 	</div>
 		<div class="container" style="padding-top: 30px;">
-			<textarea name="content" id="myEditor" class="form-control" cols="30" rows="10"></textarea>
+			<textarea name="content" id="myEditor" class="form-control" ></textarea>
 		</div>
 
 

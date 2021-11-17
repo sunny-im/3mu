@@ -42,7 +42,7 @@
 			<!-- Textarea -->
 			<div class="form-group">
 				<div class="col-md-12">                     
-					<textarea class="form-control" id="summernote" name="mcontent">default text</textarea>
+					<textarea class="form-control" id="summernote" name="mcontent" >default text</textarea>
 				</div>
 			</div>
 			<div class="form-group">
@@ -61,9 +61,14 @@
 <!-- 푸터 영역입니다. -->
 <%@ include file = "/footer.jsp" %>
   <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
+	$(document).ready(function() {
+
+		$('#summernote').summernote({
+			lang : 'ko-KR',
+			height : 250,
+		});
+
+	});
   </script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </body>
