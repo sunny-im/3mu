@@ -184,7 +184,7 @@ public class MemberDAO {
 //						rs.getString("address"),rs.getString("quiz"),rs.getString("answer"),rs.getString("regiday"),rs.getString("admin"));
 //			} return member;
 			
-			if (rs.next()) {
+			if(rs.next()) {
 	
 			String cid = rs.getString(1); 
 			String ps = rs.getString(2);
@@ -195,16 +195,19 @@ public class MemberDAO {
 			String phone = rs.getString(7); 
 			String addr = rs.getString(8);
 			String quiz = rs.getString(9);
-			String answer = rs.getNString(10);
+			String answer = rs.getString(10);
 			String date = rs.getString(11);
 			String admin = rs.getString(12);
 			
 			MemberObj member = new MemberObj(cid,ps,name,gender,birth,email,phone,addr,quiz,answer,date,admin);
 			return member;
+			
 			} else {
 				MemberObj member = null;
 				return member;
 			}
+
+			
 		} finally {
 			if(rs != null) rs.close();
 			if(stmt != null) stmt.close();
@@ -230,25 +233,37 @@ public class MemberDAO {
 		}
 	}
 
-	public void modifyMember(String password, String gender, String birth, String email, String phone, String address) throws NamingException, SQLException {
+	public int modifyMember(String id,String password) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = -1;
 		
 		try {
-			String sql = "UPDATE member SET password=?, gender=?, birth=?, email=?, phone=?, address=? WHERE id=?";
-					
+			
+			String sql = "SELECT password FROM member WHERE id=?";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, password);
-				pstmt.setString(2, gender);
-				pstmt.setString(3, birth);
-				pstmt.setString(4, email);
-				pstmt.setString(5, phone);
-				pstmt.setString(6, address);
-				
-			pstmt.executeUpdate();
+				pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(password.equals(rs.getString("password"))) {
+					String sql2 = "UPDATE member SET password=?, gender=?, birth=?, email=?, phone=?, address=? WHERE id=?";
+					pstmt = conn.prepareStatement(sql2);
+					pstmt.setNString(1, id);
+					
+					pstmt.executeLargeUpdate();
+					result = 1;  // 수정 성공 
+				} else {
+					result = 0; //실패 
+				}
+			} else {
+				result = -1; // 회원이 없음
+			}
 		} finally {
-			conn.close(); pstmt.close();
+			rs.close(); conn.close(); pstmt.close();
 		}
-	}
+		return result;
+	}		
 }
