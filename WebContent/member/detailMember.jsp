@@ -71,7 +71,7 @@
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
 				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">Update &raquo;</a>
-         <a href="DeleteDB.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">Delete &raquo;</a>
+         <a href="DeleteForm.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">Delete &raquo;</a>
 				</div>
 			</div>
 		</form>
