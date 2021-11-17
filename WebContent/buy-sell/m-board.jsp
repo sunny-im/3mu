@@ -35,8 +35,9 @@
 <%@ include file = "/header.jsp" %>
 <!-- 메인 영역입니다. -->
 	<div class="jumbotron">
-		<div class="container">
-			<h2 class="display-3">SSAMMooo<img src="/img/logo03.png" height="100"></h2>
+		<div class="container" style="display:flex;">
+			<h2 class="display-3">SSAMMooo</h2>
+			<img src="/img/logo03.png" height="100">
 		</div>
 	</div>
 <div class="body-container container">
@@ -110,7 +111,7 @@
 	</tfoot>
 	<%} else{ %>
 	<tr>
-		<th colspan=5><h2>로그인이 필요합니다!</h2></th>
+		<th colspan=5><h4>로그인이 필요합니다 :)</h4></th>
 	</tr>
 	<%} %>
 	

@@ -12,11 +12,11 @@
 <!-- 헤더영역입니다. -->
 <%@ include file = "/header.jsp" %>
 <!-- 메인 영역입니다. -->
-		<div class="jumbotron">
-			<div class="container">
-				<h1 class="display-3">삼무마켓 로그인하기</h1>
-			</div>
+	<div class="jumbotron">
+		<div class="container">
+			<h2 class="display-3">삼무마켓 로그인하기<img src="/img/logo01.png" height="100"></h2>
 		</div>
+	</div>
 	<div class="body-container container">
 		<form class="form-signin" action="loginDB.jsp" method="post">
 			<label for="inputEmail" class="sr-only">아이디</label>

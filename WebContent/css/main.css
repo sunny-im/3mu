@@ -2,8 +2,8 @@
 .grid_container {
 		display: grid;
 		grid-template:
-			"main main main" 200px
-			"aside aside aside" 200px
+			"main main main" 60%
+			"aside aside aside" 40%
 			/1fr 1fr 1fr
 }
 main {
@@ -34,7 +34,7 @@ aside {
 
 
 
-@media (min-width: 420px) {
+@media (min-width: 790px) {
 	.grid_container {
 	display: grid;
 	grid-template :
@@ -45,7 +45,7 @@ aside {
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
 	.grid_container {
 		display: grid;
 		grid-template :

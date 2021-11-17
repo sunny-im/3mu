@@ -12,11 +12,11 @@
 
 <jsp:include page="/header.jsp" />
 <div class="body-container">
-		<div class="jumbotron">
-			<div class="container">
-				<h1 class="display-3">회원 가입</h1>
-			</div>
+	<div class="jumbotron">
+		<div class="container">
+			<h2 class="display-3">회원가입<img src="/img/icon01.png" height="100"></h2>
 		</div>
+	</div>
 
 		<div class="container">
 		

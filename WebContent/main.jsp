@@ -71,14 +71,14 @@
 				}}else {
 				%>
 				<tr>
-					<th colspan=5><h2>로그인이 필요합니다!</h2></th>
+					<th colspan=5><h3>로그인이 필요합니다 :)</h2></th>
 				</tr>
 				<%} %>
 			</table>
 		</div>
 	</main>
 	<aside class="">
-		<h3>게시판 타임라인!</h3>
+		<h3>게시판 타임라인</h3>
 		<div class="mini-board aside-container">
 			<table class="table table-condensed">
 				<tr>

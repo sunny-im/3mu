@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/m-boardDetail.css">
+<link rel="stylesheet" href="/CSS/style.css">
 <style type="text/css">
        #wrap{
            text-align: center;
@@ -22,8 +22,9 @@
 <%@ include file = "/header.jsp" %>
 
 <div class="jumbotron">
-	<div class="container">
-		<h2 class="display-3">회원 리스트<img src="/img/icon03.png" height="100"></h2>
+	<div class="container" style="display:flex;">
+		<h2 class="display-3">회원 리스트</h2>
+		<img src="/img/icon03.png" height="100">
 	</div>
 </div>
 	

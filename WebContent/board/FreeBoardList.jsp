@@ -14,8 +14,9 @@
 <body>
 	<%@ include file = "/header.jsp" %>
 <div class="jumbotron">
-		<div class="container">
-			<h2 class="display-3">자유게시판<img src="/img/logo05.png" height="100"></h2>
+		<div class="container" style="display:flex;">
+			<h2 class="display-3">자유게시판</h2>
+			<img src="/img/logo05.png" height="100">
 		</div>
 	</div>
 

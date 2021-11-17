@@ -62,7 +62,7 @@ body {
     		<li><a href="/member/detailMember.jsp">마이페이지</a></li>
             <li><a href="/member/logout.jsp">로그아웃</a></li>
             <li class="divider"></li>
-            <li><a href="/member/DeleteDB.jsp?id=<%=id%>">회원탈퇴</a></li>
+            <li><a href="#" onClick="delcheck(); return false">회원탈퇴</a></li>
          <%} else { %>
             <li><a href="/member/join.jsp">회원가입</a></li>
             <li><a href="/member/login.jsp">로그인</a></li>
@@ -73,3 +73,12 @@ body {
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<script>
+function delcheck() {
+	if(confirm("정말로 탈퇴하시겠습니까?")) {
+		location.href="/member/DeleteDB.jsp?id=<%=id%>";
+	} else {
+		location.href="/member/detailMember.jsp";
+	}
+}
+</script>

@@ -8,13 +8,15 @@
 <title>회원 정보</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/m-boardDetail.css">
+<link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
 <%@ include file = "/header.jsp" %>
 	<div class="jumbotron">
-		<div class="container">
-			<h2 class="display-3">회원정보<img src="/img/logo02.png" height="100"></h2>
+		<div class="container" style="display:flex;">
+			<h2 class="display-3">회원정보</h2>
+			<img src="/img/logo02.png" height="100" >
+			
 		</div>
 	</div>
 <%
@@ -35,18 +37,7 @@
 					<%=member.getName() %>
 				</div>
 			</div>
-		<%-- 	<div class="form-group  row">
-				<label class="col-sm-2">성별</label>
-				<div class="col-sm-10">
-					<%=member.getCgender() %>
-				</div>
-			</div> --%>
-<%-- 			<div class="form-group row">
-				<label class="col-sm-2">생일</label>
-				<div class="col-sm-4  ">
-					<%=member.getCbirth() %>
-				</div>
-			</div> --%>
+
 			<div class="form-group  row ">
 				<label class="col-sm-2">이메일</label>
 				<div class="col-sm-10">
@@ -69,19 +60,30 @@
 				<div class="form-group  row">
 				<label class="col-sm-2 ">가입일</label>
 				<div class="col-sm-5">
-				
+					<%=member.getRegiday() %>
 
 				</div>
 			</div>
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">수정 &raquo;</a>
-         <a href="DeleteForm.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">회원탈퇴 &raquo;</a>
+				<%if(id.equals(session.getAttribute("id"))){ %>
+				 
+				 <a href="ModifyForm.jsp" class="btn btn-default" role="button">수정하기 </a>
+				 <%} %>
+     		    <button onClick="javascript:delcheck(); return false;" class="btn btn-default" role="button">탈퇴하기</button>
 				</div>
 			</div>
 		</form>
 	</div>
-
+<script>
+function delcheck() {
+	if(confirm("정말로 탈퇴하시겠습니까?")) {
+		location.href="/member/DeleteDB.jsp?id=<%=member.getId()%>";
+	} else {
+		location.href="/member/detailMember.jsp";
+	}
+}
+</script>
 
 
 <%@ include file = "/footer.jsp" %>

@@ -27,8 +27,9 @@
 <%@ include file = "/header.jsp" %>
 <!-- 메인 영역입니다. -->
 <div class="jumbotron">
-		<div class="container">
-			<h2 class="display-3">공지사항<img src="/img/logo04.png" height="100"></h2>
+		<div class="container" style="display:flex;">
+			<h2 class="display-3">공지사항</h2>
+			<img src="/img/logo04.png" height="100">
 		</div>
 	</div>
 <div class="body-container container">
