@@ -4,6 +4,10 @@
 body {
 	font-family: 'CookieRun-Regular';
 	padding-bottom: 70px;
+	background-image: url('/img/icon_07(2).png');
+	background-repeat: no-repeat;
+	background-size: cover; 
+	
 }
 
 @font-face {
