@@ -10,10 +10,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 </head>
+<style>
+.jumbotron {
+	padding: 0;
+	margin: 0;
+}
+</style>
 <body>
 <!-- 헤더영역입니다. -->
 <%@ include file = "/header.jsp" %>
+
 <!-- 메인 영역입니다. -->
+<div class="jumbotron">
+	<div class="container" style="display:flex;">
+		<h1 class="display-3">Welcome ssammoo 마켇</h1>
+		<img src="/img/logo05.png" height=250>
+		
+	</div>
+</div>
 <div class="grid_container">
 	<main class="col-md-12">
 		<div>

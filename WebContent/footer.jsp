@@ -4,7 +4,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
 	   <p class="navbar-text navbar-right">Made by ssammooo <img src="/img/sticker.png" height=30 weight=30>
-	   		<a href="https://github.com/dabongbong/3mu" class="navbar-link">Github</a>
+	   		<a href="https://github.com/dabongbong/3mu" class="navbar-link" >Github</a>
 	   </p>
   </div>
 </nav>

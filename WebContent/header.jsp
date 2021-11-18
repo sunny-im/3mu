@@ -4,9 +4,9 @@
 body {
 	font-family: 'CookieRun-Regular';
 	padding-bottom: 70px;
-	background-image: url('/img/icon_07(2).png');
-	background-repeat: no-repeat;
-	background-size: cover; 
+	background: url('/img/icon_07(5).png') no-repeat;
+	background-position: center top;
+	/* background-size: cover; */
 	
 }
 
@@ -17,7 +17,28 @@ body {
     font-style: normal;
 }
 
+.navbar {
+	margin: 0;
+}
+.navbar-default{
+	background-color : #ACC7B4;
+	margin: 0;
+} 
+.navbar-fixed-bottom{
+	background-color : #331B3F;
+}
+.jumbotron {
+	background-color :#ACC7B4;    /*daeee0*/
+	width:100%;
+/* 	display: flex; */
+/* 	justify-content: center;
+	align-items: center; */
+
+}
+
+
 </style>
+
 <%
 	String id = (String) session.getAttribute("id");
 %>
@@ -77,6 +98,7 @@ body {
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <script>
 function delcheck() {
 	if(confirm("정말로 탈퇴하시겠습니까?")) {
