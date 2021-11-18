@@ -35,8 +35,15 @@ body {
 	align-items: center; */
 
 }
-
-
+.jumbotron h1 {
+	color: #331B3F;
+}
+.jumbotron h2 {
+	color: #331B3F;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #331B3F;
+}
 </style>
 
 <%
