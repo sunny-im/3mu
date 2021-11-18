@@ -30,18 +30,8 @@ body {
 .jumbotron {
 	background-color :#ACC7B4;    /*daeee0*/
 	width:100%;
-/* 	display: flex; */
-/* 	justify-content: center;
-	align-items: center; */
-
 }
-.jumbotron h1 {
-	color: #331B3F;
-}
-.jumbotron h2 {
-	color: #331B3F;
-}
-.navbar-default .navbar-nav>li>a {
+.jumbotron h1,h2, .navbar-default .navbar-nav>li>a {
 	color: #331B3F;
 }
 </style>
